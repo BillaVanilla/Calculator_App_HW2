@@ -100,12 +100,28 @@ void OperatorButtonPress(String operator) {
       containsDecimal = false;
     });
   }
+
+Widget Buttonbuilder(String text, Function() onPressed, {Color? color}) {
+    return SizedBox(
+      width: 50,
+      height: 50,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color ?? Colors.red[100],
+        ),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       appBar: AppBar(
-       
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         
         title: Text(widget.title),
