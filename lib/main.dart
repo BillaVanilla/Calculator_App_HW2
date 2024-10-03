@@ -91,6 +91,15 @@ void OperatorButtonPress(String operator) {
     });
   }
 
+ void _clear() {
+    setState(() {
+      textDisplay = '0';
+      firstNumber = 0;
+      operand = '';
+      newentry = true;
+      containsDecimal = false;
+    });
+  }
   @override
   Widget build(BuildContext context) {
    
