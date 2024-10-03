@@ -118,18 +118,25 @@ Widget Buttonbuilder(String text, Function() onPressed, {Color? color}) {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+    backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+    title: const Text("Babila's Calculator"),
+    ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+         children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            alignment: Alignment.centerRight,
+            child: Text(
+              textDisplay,
+              style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            ),
+          ),
+         ]
       ),
     );
   }
