@@ -145,26 +145,43 @@ Widget build(BuildContext context) {
               childAspectRatio: 1,
           // Start of Button List
            children: [
-            Buttonbuilder('7', () => DigitButtonPress('7')),
-            Buttonbuilder('8', () => DigitButtonPress('8')),
-            Buttonbuilder('9', () => DigitButtonPress('9')),
+            Buttonbuilder('7', () => DigitButtonPress('7'), color: const Color.fromARGB(255, 9, 255, 0)),
+            Buttonbuilder('8', () => DigitButtonPress('8'), color: const Color.fromARGB(255, 9, 255, 0)),
+            Buttonbuilder('9', () => DigitButtonPress('9'), color: const Color.fromARGB(255, 9, 255, 0)),
             Buttonbuilder('/', () => OperatorButtonPress('/'), color: const Color.fromARGB(255, 238, 255, 0)),
-            Buttonbuilder('4', () => DigitButtonPress('4')),
-            Buttonbuilder('5', () => DigitButtonPress('5')),
-            Buttonbuilder('6', () => DigitButtonPress('6')),
+            Buttonbuilder('4', () => DigitButtonPress('4'), color: const Color.fromARGB(255, 255, 102, 0)),
+            Buttonbuilder('5', () => DigitButtonPress('5'), color: const Color.fromARGB(255, 255, 102, 0)),
+            Buttonbuilder('6', () => DigitButtonPress('6'), color: const Color.fromARGB(255, 255, 102, 0)),
             Buttonbuilder('*', () => OperatorButtonPress('*'), color: const Color.fromARGB(255, 238, 255, 0)),
-            Buttonbuilder('1', () => DigitButtonPress('1')),
-            Buttonbuilder('2', () => DigitButtonPress('2')),
-            Buttonbuilder('3', () => DigitButtonPress('3')),
+            Buttonbuilder('1', () => DigitButtonPress('1'), color: const Color.fromARGB(255, 0, 60, 255)),
+            Buttonbuilder('2', () => DigitButtonPress('2'), color: const Color.fromARGB(255, 0, 60, 255)),
+            Buttonbuilder('3', () => DigitButtonPress('3'), color: const Color.fromARGB(255, 0, 60, 255)),
             Buttonbuilder('-', () => OperatorButtonPress('-'), color: const Color.fromARGB(255, 238, 255, 0)),
-            Buttonbuilder('0', () => DigitButtonPress('0')),
+            Buttonbuilder('0', () => DigitButtonPress('0'), color: const Color.fromARGB(255, 0, 60, 255)),
             Buttonbuilder('.', () => DigitButtonPress('.')),
-            Buttonbuilder('=', calculate, color: Colors.orange),
-            Buttonbuilder('+', () => OperatorButtonPress('+'), color: Colors.orange),
-              ]
-            )
-          )
-         ]
+            Buttonbuilder('=', calculate, color: const Color.fromARGB(255, 255, 1, 192)),
+            Buttonbuilder('+', () => OperatorButtonPress('+'), color: const Color.fromARGB(255, 0, 247, 255)),
+              ],
+            ),
+          ),
+          // Clear Button Start
+          const SizedBox(height: 20),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(12.0),
+                backgroundColor: Colors.redAccent,
+                  ),
+          onPressed: ClearButton,
+              child: const Text(
+                'Clear',
+                style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+            const SizedBox(height: 50),
+         ],
       ),
     );
   }
