@@ -20,18 +20,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class CalculatorPage extends StatefulWidget {
+  const CalculatorPage({super.key, required this.title});
 
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<CalculatorPage> createState() => _CalculatorPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-
+class _CalculatorPageState extends State<CalculatorPage> {
+  String TextDisplay = 'Enter a number:';
+  double FirstNumber = 0;
+  String Operand = '';
+  bool Newentry = true;
+  bool ContainsDecimal = false;
 
   void _incrementCounter() {
     setState(() {
@@ -59,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              'none',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
