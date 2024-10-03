@@ -31,15 +31,23 @@ class CalculatorPage extends StatefulWidget {
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
-  String TextDisplay = 'Enter a number:';
-  double FirstNumber = 0;
-  String Operand = '';
-  bool Newentry = true;
-  bool ContainsDecimal = false;
+  String textDisplay = 'Enter a number:';
+  double firstNumber = 0;
+  String operand = '';
+  bool newentry = true;
+  bool containsDecimal = false;
 
-  void _incrementCounter() {
+  void DigitButtonPress(String number) {
     setState(() {
-
+      if (newentry) {
+        textDisplay = number == '.' ? '0.' : number;
+        newentry = false;
+      } else if (number == '.' && !containsDecimal) {
+        textDisplay += '.';
+        containsDecimal = true;
+      } else if (number != '.') {
+        textDisplay += number;
+      }
     });
   }
 
