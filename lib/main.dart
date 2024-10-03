@@ -51,6 +51,46 @@ class _CalculatorPageState extends State<CalculatorPage> {
     });
   }
 
+void OperatorButtonPress(String operator) {
+    setState(() {
+      firstNumber = double.parse(textDisplay);
+      operand = operator;
+      newentry = true;
+      containsDecimal = false;
+    });
+  }
+
+  void calculate() {
+    setState(() {
+      double secondNumber = double.parse(textDisplay);
+      double result = 0;
+
+      switch (operand) {
+        case '+':
+          result = firstNumber + secondNumber;
+          break;
+        case '-':
+          result = firstNumber - secondNumber;
+          break;
+        case '*':
+          result = firstNumber * secondNumber;
+          break;
+        case '/':
+          result = secondNumber != 0 ? firstNumber / secondNumber : double.nan;
+          break;
+        default:
+          return;
+      }
+
+      textDisplay = result.isNaN ? "Error: Please Retry" : result.toString();
+      if (textDisplay.endsWith('.0')) {
+        textDisplay = textDisplay.substring(0, textDisplay.length - 2);
+      }
+      newentry = true;
+      containsDecimal = textDisplay.contains('.');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
    
