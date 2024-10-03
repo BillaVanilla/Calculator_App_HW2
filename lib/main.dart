@@ -21,10 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class CalculatorPage extends StatefulWidget {
-  const CalculatorPage({super.key, required this.title});
-
-
-  final String title;
+  const CalculatorPage({super.key});
 
   @override
   State<CalculatorPage> createState() => _CalculatorPageState();
@@ -91,7 +88,7 @@ void OperatorButtonPress(String operator) {
     });
   }
 
- void _clear() {
+ void ClearButton() {
     setState(() {
       textDisplay = '0';
       firstNumber = 0;
@@ -136,6 +133,37 @@ Widget build(BuildContext context) {
               style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
             ),
           ),
+          // Start of Button Layout
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 100.0),
+            child: GridView.count(
+              crossAxisCount: 4,
+              shrinkWrap: true,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              childAspectRatio: 1,
+          // Start of Button List
+           children: [
+            Buttonbuilder('7', () => DigitButtonPress('7')),
+            Buttonbuilder('8', () => DigitButtonPress('8')),
+            Buttonbuilder('9', () => DigitButtonPress('9')),
+            Buttonbuilder('/', () => OperatorButtonPress('/'), color: const Color.fromARGB(255, 238, 255, 0)),
+            Buttonbuilder('4', () => DigitButtonPress('4')),
+            Buttonbuilder('5', () => DigitButtonPress('5')),
+            Buttonbuilder('6', () => DigitButtonPress('6')),
+            Buttonbuilder('*', () => OperatorButtonPress('*'), color: const Color.fromARGB(255, 238, 255, 0)),
+            Buttonbuilder('1', () => DigitButtonPress('1')),
+            Buttonbuilder('2', () => DigitButtonPress('2')),
+            Buttonbuilder('3', () => DigitButtonPress('3')),
+            Buttonbuilder('-', () => OperatorButtonPress('-'), color: const Color.fromARGB(255, 238, 255, 0)),
+            Buttonbuilder('0', () => DigitButtonPress('0')),
+            Buttonbuilder('.', () => DigitButtonPress('.')),
+            Buttonbuilder('=', calculate, color: Colors.orange),
+            Buttonbuilder('+', () => OperatorButtonPress('+'), color: Colors.orange),
+              ]
+            )
+          )
          ]
       ),
     );
